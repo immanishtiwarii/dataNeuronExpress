@@ -1,13 +1,14 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-const entryRoutes = require("./routes/entryRoutes")
-const cors = require("cors")
+const entryRoutes = require("./routes/entryRoutes");
+const cors = require("cors");
+const dotenv = require("dotenv");
 
 const app = express();
-const PORT = 5000;
 
 app.use(bodyParser.json());
+dotenv.config({ path: "confiq/confiq.env" });
 
 // Use cors middleware
 app.use(cors());
@@ -31,6 +32,6 @@ app.get("/", (req, res) => {
   res.send("Hello Manish");
 });
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+app.listen(process.env.PORT, () => {
+  console.log(`Server is running on port ${process.env.PORT}`);
 });
