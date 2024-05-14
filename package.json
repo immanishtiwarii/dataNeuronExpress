@@ -6,7 +6,9 @@
     "mongoose": "^8.3.4"
   },
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js"
+    "start": "mode index.js",
+    "dev": "SET NODE_ENV=DEVELOPMENT& nodemon index",
+    "prod": "SET NODE_ENV=PRODUCTION& nodemon index"
+   
   }
 }
