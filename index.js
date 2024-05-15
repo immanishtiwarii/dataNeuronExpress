@@ -4,9 +4,10 @@ const bodyParser = require("body-parser");
 const entryRoutes = require("./routes/entryRoutes");
 const cors = require("cors");
 const dotenv = require("dotenv");
+const executionTimeLogger = require("./middleware/executionTimeLogger")
 
 const app = express();
-
+app.use(executionTimeLogger);
 app.use(bodyParser.json());
 dotenv.config({ path: "confiq/confiq.env" });
 
